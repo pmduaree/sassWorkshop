@@ -9,10 +9,24 @@ $white: #fff;
 $almost-white: #eee;
 $gray: #333;
 $gray-light: #ccc;
-$displayColors: #84c68c, #52A55C, #10631A, #004208;
+$display-color-1: #84c68c;
+$display-color-2: #52A55C;
+$display-color-3: #10631A;
+$display-color-4: #004208;
 
 // Other Fancy Vars
 $border-radius: 8px;
+
+// Fancy Mixins
+@mixin cellColor($cell-color) {
+  border-color: $cell-color;
+  color: $cell-color;
+
+  input[type="checkbox"]:checked + .display {
+    background-color: $cell-color;
+    color: $white;
+  }
+}
 
 body {
   background-color: $almost-white;
@@ -51,26 +65,28 @@ body {
     flex: 1;
     overflow: hidden;
 
-    @for $index from 1 through length($displayColors) {
-      &:nth-child(#{$index}) {
-        $currentColor: nth($displayColors, $index);
+    .display {
+      border: 1px solid;
+      border-right-width: 0;
+      overflow: hidden;
+      padding: 0.5em;
+      white-space: nowrap;
+    }
 
-        .display {
-          border: 1px solid;
-          border-color: $currentColor;
-          border-right-width: 0;
-          color: $currentColor;
-          overflow: hidden;
-          padding: 0.5em;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-        }
+    &:nth-child(1) {
+      @include cellColor($display-color-1);
+    }
 
-        input[type="checkbox"]:checked + .display {
-          background-color: $currentColor;
-          color: $white;
-        }
-      }
+    &:nth-child(2) {
+      @include cellColor($display-color-2);
+    }
+
+    &:nth-child(3) {
+      @include cellColor($display-color-3);
+    }
+
+    &:nth-child(4) {
+      @include cellColor($display-color-4);
     }
 
     &:first-of-type .display {
@@ -116,9 +132,35 @@ body {
     padding-right: 0.5rem;
   }
 
-  .col-100 { width: 100%; }
+  .col-100 {
+    width: 100%;
+  }
 
-  .col-50 { width: 50%; }
+  .col-50 {
+    width: 50%;
+  }
 
-  .col-25 { width: 25%; }
+  .col-25 {
+    width: 25%;
+  }
 }
+
+.btn {
+  font-size: 20px;
+}
+
+.btn-primary {
+  background-color: $display-color-2;
+  color: $white;
+}
+
+.btn-default {
+  background-color: $gray;
+  color: $white;
+}
+
+.btn-large {
+  width: 60px;
+  height: 30px;
+}
+
