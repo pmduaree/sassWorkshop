@@ -13,17 +13,16 @@ En este taller tenemos un html plano y comenzaremos a darle estilo. Por cierto, 
 
 # Lets get started!
 
-## Por que usar SASS
-
-Escribir CSS suena divertido, pero muchas veces el código se puede volver inmantenible. SASS te hace la vida más sencilla con las funciones que tiene, en especial al momento de leer el código.
-
-Veremos de que manera puede ser eso.
-
 ## CSS Plano
 
 Que es...?
 
 * Selectores
+    * id
+    * class
+    * \*
+    * element
+    * element, element
 * Propiedades y valores
 * Propiedades básicas
     * background-color
@@ -37,6 +36,13 @@ Que es...?
     * padding
 
 ![alt-text](https://ironion.com/wp-content/uploads/2015/07/boxmodel.png)
+
+## Por que usar SASS
+
+Escribir CSS suena divertido, pero muchas veces el código se puede volver inmantenible. SASS te hace la vida más sencilla con las funciones que tiene, en especial al momento de leer el código.
+
+Veremos de que manera puede ser eso.
+
 
 ## Variables
 
@@ -180,4 +186,10 @@ http://thesassway.com/
 
 http://paletton.com/
 
+http://www.w3schools.com/cssref/css_selectors.asp
+
 Online playground: http://codepen.io/pen/
+
+## Agradecimientos
+
+Gran agradecimiento a [tonymtz](https://github.com/tonymtz) por crear el ejemplo
