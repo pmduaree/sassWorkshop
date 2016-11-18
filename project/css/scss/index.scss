@@ -1,0 +1,124 @@
+// Fancy Font
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
+// Fancy device sizes
+$mobile-width: 960px;
+
+// Fancy Colors
+$white: #fff;
+$almost-white: #eee;
+$gray: #333;
+$gray-light: #ccc;
+$displayColors: #84c68c, #52A55C, #10631A, #004208;
+
+// Other Fancy Vars
+$border-radius: 8px;
+
+body {
+  background-color: $almost-white;
+  color: $gray;
+  font-family: 'Roboto', sans-serif;
+}
+
+// Fancy Card
+
+.fancy-card {
+  background: $white;
+  border-radius: $border-radius;
+  margin: 0.5em 0;
+  padding: 1em;
+
+  header h1 {
+    font-weight: 100;
+    margin: 0 0 0.75em 0;
+  }
+
+  footer {
+    color: $gray-light;
+    font-size: 75%;
+    text-transform: uppercase;
+  }
+}
+
+// Fancy Selector
+
+.fancy-selector {
+  display: flex;
+  flex-grow: row wrap;
+
+  .option {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+
+    @for $index from 1 through length($displayColors) {
+      &:nth-child(#{$index}) {
+        $currentColor: nth($displayColors, $index);
+
+        .display {
+          border: 1px solid;
+          border-color: $currentColor;
+          border-right-width: 0;
+          color: $currentColor;
+          overflow: hidden;
+          padding: 0.5em;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+        input[type="checkbox"]:checked + .display {
+          background-color: $currentColor;
+          color: $white;
+        }
+      }
+    }
+
+    &:first-of-type .display {
+      border-radius: $border-radius 0 0 $border-radius;
+    }
+
+    &:last-of-type .display {
+      border-radius: 0 $border-radius $border-radius 0;
+      border-right-width: 1px;
+    }
+
+    input[type="checkbox"] {
+      display: none;
+    }
+
+    label {
+      cursor: pointer;
+      text-align: center;
+      width: 100%;
+    }
+  }
+}
+
+// Fancy Grid System
+
+.container {
+  margin-left: 1em;
+  margin-right: 1em;
+
+  &::after {
+    content: "";
+    clear: both;
+    display: block;
+  }
+
+  &, & * {
+    box-sizing: border-box;
+  }
+
+  [class*="col-"] {
+    float: left;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .col-100 { width: 100%; }
+
+  .col-50 { width: 50%; }
+
+  .col-25 { width: 25%; }
+}
